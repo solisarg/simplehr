@@ -3,9 +3,13 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Container,Table } from 'react-bootstrap';
 import { useFetch } from './useFetch';
 import { Link } from "react-router-dom";
+import { BaseContext } from './App';
+import { useContext } from "react";
 
 function Departments() {
-    const {loading, data, error} = useFetch('http://localhost/simple-hr/back/endpoint.php?action=departments')
+   const uri = useContext(BaseContext);
+   
+    const {loading, data, error} = useFetch(uri.baseUrl+'endpoint.php?action=departments')
     if(loading) return <h1>loading ...</h1>;
     if(error) return (<pre>{JSON.stringify(error, 2, null)}</pre>)
     return (
@@ -21,6 +25,7 @@ function Departments() {
           <th ><b>Max. Salary</b></th>
           </tr>
         </thead>
+        <tbody>
            {data.map(dpt=>(
               <tr key={dpt.id}>
                   <td>
@@ -33,6 +38,7 @@ function Departments() {
                 <td>{dpt.maxsalary}</td>
               </tr>
             ))}
+            </tbody>
             </Table>
       </Container>
     )

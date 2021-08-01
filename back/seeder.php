@@ -10,6 +10,7 @@ $qry = "CREATE TABLE IF NOT EXISTS departments (
 $result = mysqli_query($conn, $qry) or die(mysqli_error($conn));
 $qry = "CREATE TABLE IF NOT EXISTS employees (
     id int(11) NOT NULL,
+    dpt_id int(2) NOT NULL,
     name varchar(100) NOT NULL,
     address varchar(255) NOT NULL,
     email varchar(100) NOT NULL,

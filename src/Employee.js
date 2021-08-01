@@ -2,6 +2,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Card } from 'react-bootstrap';
 import { useFetch } from './useFetch';
 import { Link,useLocation } from "react-router-dom";
+import { BaseContext } from './App';
+import { useContext } from "react";
 
   function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -10,7 +12,8 @@ import { Link,useLocation } from "react-router-dom";
 function Employee() {
     let query = useQuery();
     let empId = query.get('id')
-    const {loading, data, error} = useFetch('http://localhost/simple-hr/back/endpoint.php?action=employee&id='+empId)
+    const uri = useContext(BaseContext);
+    const {loading, data, error} = useFetch(uri.baseUrl+'endpoint.php?action=employee&id='+empId)
     if(loading) return <h1>loading ...</h1>;
     if(error) return (<pre>{JSON.stringify(error, 2, null)}</pre>)
     

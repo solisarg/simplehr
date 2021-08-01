@@ -7,10 +7,16 @@ import {
 import Departments from './Departments';
 import Dpto from './Dpto';
 import Employee from './Employee';
+import { createContext, useState } from "react";
+
+export  const BaseContext = createContext();
 
 export default function App() {
+  const [baseUrl, setBaseUrl] = useState("/simplehr/back/");
+
   return (
     <Router>
+      <BaseContext.Provider value={{baseUrl,setBaseUrl}}>
       <div>
         <nav>
           <ul>
@@ -32,6 +38,7 @@ export default function App() {
           </Route>
         </Switch>
       </div>
+      </BaseContext.Provider>
     </Router>
   );
 }
