@@ -4,7 +4,7 @@ This is a simple demo proyect where a list of departments, employees of this dep
 
 The back-end was developend with PHP as a single endpoint, the front end as a React app using [Create React App](https://github.com/facebook/create-react-app).
 
-You can see the application running at (http://3818devarg.com/simplehr/)
+You can see the application running at (http://devarg3818.com/simplehr/)
 
 ## Proyect setup
 
