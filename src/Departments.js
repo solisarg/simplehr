@@ -35,7 +35,7 @@ function Departments() {
                     }
                     </td>
                 <td>{dpt.cant}</td>
-                <td>{dpt.maxsalary}</td>
+                <td>{dpt.maxsalary}K</td>
               </tr>
             ))}
             </tbody>

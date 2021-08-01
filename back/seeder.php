@@ -14,7 +14,7 @@ $qry = "CREATE TABLE IF NOT EXISTS employees (
     name varchar(100) NOT NULL,
     address varchar(255) NOT NULL,
     email varchar(100) NOT NULL,
-    salary decimal(10,2) NOT NULL
+    salary int(6) NOT NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
 $result = mysqli_query($conn, $qry) or die(mysql_error($conn));
 //clean both tables
